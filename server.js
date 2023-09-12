@@ -3,6 +3,9 @@ require("dotenv").config();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { Configuration, OpenAIApi } = require("openai");
+import {AbortController} from "node-abort-controller";
+
+global.AbortController = AbortController;
 const config = new Configuration({
   apiKey: process.env.GPTAPIKEY,
 });
