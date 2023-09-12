@@ -2,15 +2,13 @@ import express from "express";
 import dotenv from 'dotenv';
 import cors from "cors";
 import bodyParser from "body-parser";
-import { Configuration, OpenAI } from "openai";
+import {  OpenAI } from "openai";
 import {AbortController} from "node-abort-controller";
 dotenv.config()
 global.AbortController = AbortController;
-const config = new Configuration({
-  apiKey: process.env.GPTAPIKEY,
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
 });
-
-const openai = new OpenAI(config);
 
 // Setup server
 
