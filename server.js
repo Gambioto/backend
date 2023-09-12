@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import cors from "cors";
 import bodyParser from "body-parser";
-import { Configuration, OpenAIApi } from "openai";
+import { Configuration, OpenAI } from "openai";
 import {AbortController} from "node-abort-controller";
 dotenv.config()
 global.AbortController = AbortController;
@@ -10,7 +10,7 @@ const config = new Configuration({
   apiKey: process.env.GPTAPIKEY,
 });
 
-const openai = new OpenAIApi(config);
+const openai = new OpenAI(config);
 
 // Setup server
 
