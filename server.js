@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from 'dotenv';
 import cors from "cors";
 import bodyParser from "body-parser";
-import { Configuration, OpenAI } from "openai";
+import { OpenAI } from "openai";
 import {AbortController} from "node-abort-controller";
 dotenv.config()
 global.AbortController = AbortController;
