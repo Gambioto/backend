@@ -19,7 +19,7 @@ app.use(cors());
 // endpoint for ChatGPT
 
 app.post("/chat", async (req, res) => {
-
+  console.log(req)
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
     max_tokens: 712,
