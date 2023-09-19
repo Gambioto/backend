@@ -7,6 +7,7 @@ import {AbortController} from "node-abort-controller";
 dotenv.config()
 
 global.AbortController = AbortController;
+
 const openai = new OpenAI({
   apiKey: process.env.GPTAPIKEY // This is also the default, can be omitted
 });
@@ -21,7 +22,7 @@ app.use(cors());
 
 app.post("/chat", async (req, res) => {
   console.log(req)
-  const completion = await openai.createCompletion({
+  const completion = await openai.createCompletion.create({
     model: "text-davinci-003",
     max_tokens: 712,
     temperature: 0.7,
@@ -35,7 +36,7 @@ app.post("/chat", async (req, res) => {
     Usuario:${req.body.prompt}
     Asistente: `,
   }); 
-  res.send(completion.data.choices[0].text);
+  res.send(completion.choices[0].message);
 });
 
 const PORT = 3000;
