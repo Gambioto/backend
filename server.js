@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import { OpenAI } from "openai";
 import {AbortController} from "node-abort-controller";
 dotenv.config()
+
 global.AbortController = AbortController;
 const openai = new OpenAI({
   apiKey: process.env.GPTAPIKEY // This is also the default, can be omitted
@@ -37,7 +38,7 @@ app.post("/chat", async (req, res) => {
   res.send(completion.data.choices[0].text);
 });
 
-const PORT = 8080;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
